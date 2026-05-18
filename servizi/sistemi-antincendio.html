@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemi Antincendio – Reacqua</title>
+  <meta name="description" content="Installazione di impianti sprinkler, idranti, naspi e sistemi di rilevamento incendio certificati UNI EN. Reacqua.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#0A2E52;--blue:#1B6CA8;--sky:#4BAFD6;--pale:#E8F4FD;--white:#FFFFFF;--text:#0F172A;--text-2:#334155;--text-3:#64748B;--border:#CBD5E1;--sh-sm:0 1px 3px rgba(10,46,82,.08);--sh-md:0 4px 16px rgba(10,46,82,.12);--sh-lg:0 8px 32px rgba(10,46,82,.18);--ease:0.25s ease;--r:8px;--r-lg:16px; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Open Sans',sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--white);overflow-x:hidden;opacity:0;animation:fadeIn .4s ease .05s forwards;}
+    @keyframes fadeIn{to{opacity:1;}}
+    a{text-decoration:none;color:inherit;}ul{list-style:none;}button{font-family:inherit;cursor:pointer;border:none;background:none;}
+    :focus-visible{outline:2px solid var(--sky);outline-offset:3px;}
+    .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+    .sec{padding:88px 0;}.sec--alt{background:var(--pale);}
+    .label{font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--sky);margin-bottom:12px;}
+    .h2{font-family:'Poppins',sans-serif;font-size:clamp(26px,3.2vw,40px);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:18px;}
+    .lead{font-size:17px;color:var(--text-2);line-height:1.75;max-width:640px;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:var(--r);font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;transition:all var(--ease);cursor:pointer;}
+    .btn svg{width:15px;height:15px;}
+    .btn-primary{background:var(--blue);color:var(--white);border:2px solid var(--blue);}
+    .btn-primary:hover{background:var(--navy);border-color:var(--navy);transform:translateY(-1px);box-shadow:var(--sh-md);}
+    .btn-ghost{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.55);}
+    .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:var(--white);}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color var(--ease),box-shadow var(--ease);}
+    .nav.stuck{border-bottom-color:var(--border);box-shadow:var(--sh-sm);}
+    .nav__inner{display:flex;align-items:center;justify-content:space-between;height:70px;}
+    .nav__logo{display:flex;align-items:center;flex-shrink:0;}
+    .nav__logo-img{height:42px;width:auto;display:block;}
+    .nav__logo-img--footer{filter:brightness(0) invert(1);opacity:.82;height:38px;}
+    .nav__links{display:flex;align-items:center;gap:32px;}
+    .nav__links a{font-size:14px;font-weight:600;color:var(--text-2);transition:color var(--ease);}
+    .nav__links a:hover{color:var(--navy);}
+    .nav__right{display:flex;align-items:center;gap:16px;}
+    .nav__tel{font-size:13px;font-weight:600;color:var(--text-2);display:flex;align-items:center;gap:6px;}
+    .nav__tel svg{width:13px;height:13px;}
+    .nav__burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:10px;border-radius:var(--r);cursor:pointer;flex-shrink:0;}
+    .nav__burger:hover{background:var(--pale);}
+    .nav__burger span{display:block;width:100%;height:2px;background:var(--navy);border-radius:2px;transition:transform .25s ease,opacity .25s ease;}
+    .drawer{display:none;position:fixed;top:70px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);box-shadow:var(--sh-lg);z-index:99;padding:16px 24px 24px;}
+    .drawer.open{display:block;}
+    .drawer a{display:block;padding:12px 0;font-weight:600;color:var(--text-2);border-bottom:1px solid var(--border);font-size:15px;}
+    .drawer a:last-child{border-bottom:none;}
+    .drawer .btn{margin-top:16px;width:100%;justify-content:center;}
+    .nav__burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .nav__burger.open span:nth-child(2){opacity:0;}
+    .nav__burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .page-hero{position:relative;padding:140px 0 80px;background:var(--navy);overflow:hidden;}
+    .page-hero__bg{position:absolute;inset:0;pointer-events:none;}
+    .page-hero__bg svg{position:absolute;width:100%;height:100%;}
+    .page-hero__body{position:relative;z-index:2;}
+    .breadcrumb{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;font-weight:600;margin-bottom:20px;transition:color var(--ease);}
+    .breadcrumb:hover{color:var(--sky);}.breadcrumb svg{width:14px;height:14px;}
+    .page-hero h1{font-family:'Poppins',sans-serif;font-size:clamp(32px,4.5vw,56px);font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-.025em;margin-bottom:20px;}
+    .page-hero h1 em{font-style:normal;color:var(--sky);}
+    .page-hero__sub{font-size:17px;color:rgba(255,255,255,.68);line-height:1.75;max-width:600px;margin-bottom:32px;}
+    .page-hero__tags{display:flex;gap:10px;flex-wrap:wrap;}
+    .tag{display:inline-flex;align-items:center;gap:6px;background:rgba(75,175,214,.15);border:1px solid rgba(75,175,214,.3);color:var(--sky);padding:5px 12px;border-radius:100px;font-size:12px;font-weight:600;}
+    .offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:48px;}
+    .offer-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:30px 26px;transition:all var(--ease);}
+    .offer-card:hover{border-color:var(--sky);box-shadow:var(--sh-md);transform:translateY(-3px);}
+    .offer-card__icon{width:46px;height:46px;background:var(--pale);border-radius:var(--r);display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:background var(--ease);}
+    .offer-card:hover .offer-card__icon{background:var(--blue);}
+    .offer-card__icon svg{width:20px;height:20px;color:var(--blue);stroke-width:1.8;transition:color var(--ease);}
+    .offer-card:hover .offer-card__icon svg{color:var(--white);}
+    .offer-card h3{font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+    .offer-card p{font-size:14px;color:var(--text-2);line-height:1.65;}
+    .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin-top:52px;position:relative;}
+    .process::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--blue),var(--sky));z-index:0;}
+    .step{text-align:center;padding:0 20px;position:relative;z-index:1;}
+    .step__num{width:56px;height:56px;border-radius:50%;background:var(--navy);border:3px solid var(--blue);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Poppins',sans-serif;font-size:18px;font-weight:800;color:var(--white);}
+    .step__title{font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+    .step__desc{font-size:13px;color:var(--text-3);line-height:1.6;}
+    .norm-list{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;}
+    .norm-badge{display:flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:10px 16px;font-size:13px;font-weight:700;color:var(--navy);}
+    .norm-badge svg{width:16px;height:16px;color:var(--sky);}
+    /* Alert/warning band */
+    .alert-band{background:linear-gradient(135deg,#7C1D1D,#991B1B);padding:28px 0;}
+    .alert-band__inner{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+    .alert-band__icon{width:44px;height:44px;min-width:44px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+    .alert-band__icon svg{width:22px;height:22px;color:white;}
+    .alert-band p{font-size:15px;color:white;line-height:1.5;}
+    .alert-band strong{font-weight:700;}
+    .cta-band{background:linear-gradient(135deg,var(--navy),var(--blue));padding:72px 0;position:relative;overflow:hidden;}
+    .cta-band::before{content:'';position:absolute;top:-50%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(75,175,214,.2) 0%,transparent 70%);}
+    .cta-band__body{position:relative;z-index:1;text-align:center;}
+    .cta-band h2{font-family:'Poppins',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--white);margin-bottom:14px;}
+    .cta-band p{font-size:17px;color:rgba(255,255,255,.7);margin-bottom:32px;}
+    .cta-band__btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+    .footer{background:var(--navy);padding:60px 0 0;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1);}
+    .footer-desc{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;margin-top:14px;max-width:270px;}
+    .footer-col-title{font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;}
+    .footer-links{display:flex;flex-direction:column;gap:9px;}
+    .footer-links a,.footer-links span{font-size:14px;color:rgba(255,255,255,.5);transition:color var(--ease);}
+    .footer-links a:hover{color:var(--white);}
+    .footer-bot{padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+    .footer-copy{font-size:13px;color:rgba(255,255,255,.35);}
+    .footer-legal{display:flex;gap:18px;}
+    .footer-legal a{font-size:13px;color:rgba(255,255,255,.35);transition:color var(--ease);}
+    .footer-legal a:hover{color:rgba(255,255,255,.75);}
+    .nav__logo--footer{color:white!important;}.nav__logo--footer span{color:var(--sky)!important;}
+    @media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px;}.nav__links,.nav__right{display:none!important;}.nav__burger{display:flex!important;}.process::before{display:none;}.process{gap:28px;}}
+    @media(max-width:768px){.sec{padding:64px 0;}.footer-grid{grid-template-columns:1fr;}.page-hero{padding:120px 0 60px;}}
+    @media(max-width:480px){.wrap{padding:0 16px;}}
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav__inner">
+      <a class="nav__logo" href="../index.html">
+        <img src="../assets/logo.png" alt="Reacqua" class="nav__logo-img">
+      </a>
+      <nav class="nav__links">
+        <a href="../index.html#servizi">Servizi</a>
+        <a href="../index.html#chi-siamo">Chi Siamo</a>
+        <a href="../index.html#perche-noi">Perché Noi</a>
+        <a href="../index.html#certificazioni">Certificazioni</a>
+        <a href="../index.html#contatti">Contatti</a>
+      </nav>
+      <div class="nav__right">
+        <a class="nav__tel" href="tel:+393483367110"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.07 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>+39 348 3367110</a>
+        <a href="../index.html#contatti" class="btn btn-primary">Richiedi Preventivo</a>
+      </div>
+      <button class="nav__burger" id="burger" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="drawer" id="drawer">
+  <a href="../index.html#servizi" onclick="closeDrawer()">Servizi</a>
+  <a href="../index.html#chi-siamo" onclick="closeDrawer()">Chi Siamo</a>
+  <a href="../index.html#perche-noi" onclick="closeDrawer()">Perché Noi</a>
+  <a href="../index.html#certificazioni" onclick="closeDrawer()">Certificazioni</a>
+  <a href="../index.html#contatti" onclick="closeDrawer()">Contatti</a>
+  <a href="../index.html#contatti" class="btn btn-primary" onclick="closeDrawer()">Richiedi Preventivo</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero__bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 500" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="g1" cx="75%" cy="20%" r="50%"><stop offset="0%" stop-color="#7C1D1D" stop-opacity=".3"/><stop offset="100%" stop-color="#0A2E52" stop-opacity="0"/></radialGradient>
+        <radialGradient id="g2" cx="10%" cy="80%" r="40%"><stop offset="0%" stop-color="#4BAFD6" stop-opacity=".15"/><stop offset="100%" stop-color="#0A2E52" stop-opacity="0"/></radialGradient>
+      </defs>
+      <rect width="1440" height="500" fill="url(#g1)"/>
+      <rect width="1440" height="500" fill="url(#g2)"/>
+      <path d="M0 380 Q360 340 720 380 Q1080 420 1440 380 L1440 500 L0 500Z" fill="rgba(75,175,214,.05)"/>
+    </svg>
+  </div>
+  <div class="wrap page-hero__body">
+    <a class="breadcrumb" href="../index.html#servizi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Tutti i Servizi</a>
+    <h1>Sistemi <em>Antincendio</em></h1>
+    <p class="page-hero__sub">Progettiamo e installiamo impianti antincendio attivi e passivi certificati per edifici civili, commerciali e industriali. Conformità garantita al DPR 151/2011.</p>
+    <div class="page-hero__tags">
+      <span class="tag">Sprinkler</span>
+      <span class="tag">Idranti &amp; Naspi</span>
+      <span class="tag">Rilevazione Fumi</span>
+      <span class="tag">Gas Inerte</span>
+    </div>
+  </div>
+</section>
+
+<!-- ALERT BAND -->
+<div class="alert-band">
+  <div class="wrap">
+    <div class="alert-band__inner">
+      <div class="alert-band__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div>
+      <p><strong>Obbligo di legge:</strong> Il D.Lgs. 81/2008 e il DPR 151/2011 impongono la dotazione di impianti antincendio conformi per la maggior parte delle attività produttive, commerciali e ricettive. Sanzioni fino a 6.400€ per la mancata conformità.</p>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section class="sec">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+      <div>
+        <p class="label">Panoramica</p>
+        <h2 class="h2">Proteggere vite e patrimoni è la nostra priorità</h2>
+        <p class="lead" style="margin-bottom:20px;">Un sistema antincendio efficace è la prima linea di difesa in caso di emergenza. La sua progettazione deve tenere conto del tipo di rischio, della volumetria dell'edificio e delle attività svolte al suo interno.</p>
+        <p style="font-size:15px;color:var(--text-2);line-height:1.75;">I nostri ingegneri antincendio analizzano ogni contesto specifico per progettare impianti in grado di controllare, contenere o estinguere un incendio nei primi minuti critici, riducendo al minimo i danni e proteggendo le persone.</p>
+      </div>
+      <div style="background:linear-gradient(135deg,#7C1D1D,var(--navy));border-radius:var(--r-lg);padding:40px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-20%;right:-15%;width:220px;height:220px;background:radial-gradient(circle,rgba(239,68,68,.2) 0%,transparent 70%);border-radius:50%;"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative;z-index:1;">
+          <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--r);padding:20px;text-align:center;">
+            <div style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;color:white;line-height:1;">400<sup style="font-size:16px;color:var(--sky);">+</sup></div>
+            <div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;">Impianti certificati</div>
+          </div>
+          <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--r);padding:20px;text-align:center;">
+            <div style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;color:white;line-height:1;">100<sup style="font-size:16px;color:var(--sky);">%</sup></div>
+            <div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;">Collaudi superati al 1° test</div>
+          </div>
+          <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--r);padding:20px;text-align:center;">
+            <div style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;color:white;line-height:1;">24/7</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;">Assistenza emergenze</div>
+          </div>
+          <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--r);padding:20px;text-align:center;">
+            <div style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;color:white;line-height:1;">5<sup style="font-size:16px;color:var(--sky);">anni</sup></div>
+            <div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;">Garanzia impianto</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE OFFER -->
+<section class="sec sec--alt">
+  <div class="wrap">
+    <p class="label">Cosa Offriamo</p>
+    <h2 class="h2">Tipologie di impianti antincendio</h2>
+    <p class="lead">Dalla rilevazione precoce all'estinzione automatica: copriamo ogni aspetto della protezione antincendio attiva e passiva.</p>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 8v4l3 3"/></svg></div>
+        <h3>Impianti Sprinkler Automatici</h3>
+        <p>Sistemi a pioggia, a diluvio e a preallarme per la soppressione automatica dell'incendio. Progettazione secondo EN 12845 e NFPA 13, adatti a magazzini, GDO, uffici e strutture ricettive.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg></div>
+        <h3>Reti Idranti UNI 45/70</h3>
+        <p>Installazione di colonne montanti e reti a secco e ad umido con idranti a muro e a colonna. Dimensionamento idraulico secondo UNI 10779 con calcolo della pressione residua.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 16.5c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5c.74 0 1.435.18 2.045.5L12 5l2.955 2.5C15.565 7.18 16.26 7 17 7c2.485 0 4.5 2.015 4.5 4.5S19.485 16.5 17 16.5"/><path d="M12 12v9"/></svg></div>
+        <h3>Naspi Antincendio DN25</h3>
+        <p>Fornitura e installazione di naspi a corredo dei piani, con tubazione semirigida da 25mm. Adatti ad edifici con affollamento ridotto secondo UNI EN 671-1.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
+        <h3>Rilevazione Fumi e Calore</h3>
+        <p>Centrali di rilevazione incendio analogiche e indirizzabili con rivelatori ottici, termici e multicriterio. Integrazione con impianti di evacuazione EVAC secondo EN 54.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <h3>Sistemi a Gas Inerte (FM-200 / CO₂)</h3>
+        <p>Impianti di estinzione a gas per sale server, archivi, quadri elettrici e ambienti con apparecchiature sensibili all'acqua. Progettazione secondo ISO 14520.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Collaudo e Certificazione VVF</h3>
+        <p>Gestione completa della pratica per l'ottenimento del Certificato di Prevenzione Incendi (CPI) presso il Comando VVF territoriale, inclusi sopralluogo e documentazione tecnica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec">
+  <div class="wrap">
+    <p class="label" style="text-align:center;">Come Lavoriamo</p>
+    <h2 class="h2" style="text-align:center;">Dal progetto alla certificazione VVF</h2>
+    <div class="process">
+      <div class="step"><div class="step__num">1</div><div class="step__title">Analisi del Rischio</div><div class="step__desc">Classificazione del rischio incendio dell'attività secondo il D.M. 3/8/2015 e sopralluogo tecnico gratuito.</div></div>
+      <div class="step"><div class="step__num">2</div><div class="step__title">Progetto Antincendio</div><div class="step__desc">Redazione del progetto da sottoporre al SUAP/VVF con relazioni tecniche, planimetrie e calcoli idraulici.</div></div>
+      <div class="step"><div class="step__num">3</div><div class="step__title">Installazione</div><div class="step__desc">Posa degli impianti da parte di tecnici abilitati con materiali certificati EN e conformi al progetto approvato.</div></div>
+      <div class="step"><div class="step__num">4</div><div class="step__title">Collaudo Funzionale</div><div class="step__desc">Test idraulici, prove di attivazione e verifica di tutti i componenti prima del sopralluogo dei Vigili del Fuoco.</div></div>
+      <div class="step"><div class="step__num">5</div><div class="step__title">Ottenimento CPI</div><div class="step__desc">Assistenza completa alla visita VVF e consegna del Certificato di Prevenzione Incendi con documentazione finale.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NORMS -->
+<section class="sec sec--alt">
+  <div class="wrap">
+    <p class="label">Normative di Riferimento</p>
+    <h2 class="h2">Conformità agli standard nazionali ed europei</h2>
+    <p class="lead">Ogni impianto antincendio viene progettato e installato nel rispetto delle seguenti normative obbligatorie.</p>
+    <div class="norm-list">
+      <div class="norm-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>DPR 151/2011</div>
+      <div class="norm-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>D.M. 3/8/2015 (Codice Antincendio)</div>
+      <div class="norm-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>UNI EN 671-1/2</div>
+      <div class="norm-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>UNI 10779</div>
+      <div class="norm-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>EN 12845 (Sprinkler)</div>
+      <div class="norm-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>EN 54 (Rilevazione)</div>
+      <div class="norm-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>D.Lgs. 81/2008</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap cta-band__body">
+    <h2>Il tuo edificio è in regola?</h2>
+    <p>Contattaci per una verifica gratuita della conformità antincendio. Interveniamo su tutto il territorio nazionale.</p>
+    <div class="cta-band__btns">
+      <a href="../index.html#contatti" class="btn btn-primary">Richiedi Verifica Gratuita</a>
+      <a href="tel:+393483367110" class="btn btn-ghost">+39 348 3367110</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="nav__logo" href="../index.html">
+          <img src="../assets/logo.png" alt="Reacqua" class="nav__logo-img nav__logo-img--footer">
+        </a>
+        <p class="footer-desc">Soluzioni professionali nel settore idrico e antincendio.</p>
+      </div>
+      <div><h4 class="footer-col-title">Servizi</h4><nav class="footer-links"><a href="impianti-idrici.html">Impianti Idrici</a><a href="sistemi-antincendio.html">Sistemi Antincendio</a><a href="installazioni-idrauliche.html">Installazioni Idrauliche</a><a href="manutenzione.html">Manutenzione</a></nav></div>
+      <div><h4 class="footer-col-title">Azienda</h4><nav class="footer-links"><a href="../index.html#chi-siamo">Chi Siamo</a><a href="../index.html#perche-noi">Perché Sceglierci</a><a href="../index.html#certificazioni">Certificazioni</a><a href="../index.html#contatti">Contatti</a></nav></div>
+      <div><h4 class="footer-col-title">Contatti</h4><div class="footer-links"><a href="tel:+393483367110">+39 348 3367110</a><a href="mailto:marco.cocito@reacqua.com">marco.cocito@reacqua.com</a><span>Via Esempio 1, Milano</span></div></div>
+    </div>
+    <div class="footer-bot"><p class="footer-copy">© 2026 Reacqua S.r.l. – Tutti i diritti riservati</p><nav class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Cookie Policy</a></nav></div>
+  </div>
+</footer>
+<script>
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>20),{passive:true});
+  const burger=document.getElementById('burger'),drawer=document.getElementById('drawer');
+  burger.addEventListener('click',()=>{const o=drawer.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);});
+  function closeDrawer(){drawer.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');}
+</script>
+</body>
+</html>
