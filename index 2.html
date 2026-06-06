@@ -84,18 +84,21 @@
       display: flex; align-items: center;
       justify-content: space-between; height: 70px;
     }
-    .nav__logo { display: flex; align-items: center; flex-shrink: 0; }
-    .nav__logo-img { height: 42px; width: auto; display: block; }
-    .nav__logo-img--footer { filter: brightness(0) invert(1); opacity: .82; height: 38px; }
+    .nav__logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Poppins', sans-serif; font-size: 21px;
+      font-weight: 700; color: var(--navy); letter-spacing: -.02em;
+    }
+    .nav__logo span { color: var(--sky); }
+    .nav__logo svg { width: 34px; height: 34px; flex-shrink: 0; }
     .nav__links { display: flex; align-items: center; gap: 32px; }
     .nav__links a { font-size: 14px; font-weight: 600; color: var(--text-2); transition: color var(--ease); }
     .nav__links a:hover { color: var(--navy); }
     .nav__right { display: flex; align-items: center; gap: 16px; }
     .nav__tel { font-size: 13px; font-weight: 600; color: var(--text-2); display: flex; align-items: center; gap: 6px; }
     .nav__tel svg { width: 13px; height: 13px; }
-    .nav__burger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; padding: 10px; border-radius: var(--r); cursor: pointer; flex-shrink: 0; }
-    .nav__burger:hover { background: var(--pale); }
-    .nav__burger span { display: block; width: 100%; height: 2px; background: var(--navy); border-radius: 2px; transition: transform .25s ease, opacity .25s ease; }
+    .nav__burger { display: none; flex-direction: column; gap: 5px; width: 28px; padding: 4px; }
+    .nav__burger span { display: block; height: 2px; background: var(--navy); border-radius: 2px; transition: all var(--ease); }
 
     /* mobile drawer */
     .drawer {
@@ -371,21 +374,16 @@
       .contact-grid{ grid-template-columns: 1fr; gap: 44px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
       .why-grid    { grid-template-columns: repeat(2,1fr); gap: 20px; }
-      /* Navbar: nascondi link e CTA, mostra burger */
-      .nav__links, .nav__right { display: none !important; }
-      .nav__burger { display: flex !important; }
     }
     @media (max-width: 768px) {
       .sec { padding: 64px 0; }
+      .nav__links, .nav__right { display: none; }
+      .nav__burger { display: flex; }
       .why-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .f-row { grid-template-columns: 1fr; }
       .hero__kpis { gap: 24px; margin-top: 52px; }
     }
-    /* Animazione burger → X */
-    .nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav__burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     @media (max-width: 480px) {
       .wrap { padding: 0 16px; }
       .hero__btns { flex-direction: column; align-items: flex-start; }
@@ -393,267 +391,21 @@
       .contact-grid { gap: 32px; }
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ════════════════════════════
-       COMING SOON OVERLAY
-    ════════════════════════════ */
-    #cs-overlay {
-      position: fixed; inset: 0; z-index: 9999;
-      background: var(--navy);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      overflow: hidden;
-      transition: opacity .8s ease;
-    }
-    #cs-overlay.cs-hide { opacity: 0; pointer-events: none; }
-    .cs-bg-g1 {
-      position: absolute; top: -20%; right: -10%;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(27,108,168,.28) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .cs-bg-g2 {
-      position: absolute; bottom: 5%; left: -15%;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(75,175,214,.18) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .cs-bg-g3 {
-      position: absolute; top: 35%; left: 55%;
-      width: 380px; height: 380px;
-      background: radial-gradient(circle, rgba(75,175,214,.08) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    #cs-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-    .cs-particle {
-      position: absolute; bottom: -60px; border-radius: 50%;
-      background: rgba(75,175,214,.22); pointer-events: none;
-      animation: cs-float linear infinite;
-    }
-    @keyframes cs-float {
-      0%   { transform: translateY(0) scale(1);    opacity: 0; }
-      10%  { opacity: .75; }
-      90%  { opacity: .3; }
-      100% { transform: translateY(-110vh) scale(.6); opacity: 0; }
-    }
-    .cs-content {
-      position: relative; z-index: 2;
-      display: flex; flex-direction: column;
-      align-items: center; text-align: center;
-      padding: 20px 24px 170px;
-    }
-    .cs-logo-wrap { display: block; margin-bottom: 36px; }
-    .cs-logo {
-      height: 50px; width: auto;
-      filter: brightness(0) invert(1); opacity: .88;
-      animation: cs-fadein .8s ease both;
-    }
-    .cs-chip {
-      display: inline-flex; align-items: center; gap: 9px;
-      background: rgba(75,175,214,.13); border: 1px solid rgba(75,175,214,.32);
-      color: var(--sky); padding: 6px 16px; border-radius: 100px;
-      font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-      margin-bottom: 28px; animation: cs-fadein .8s ease .1s both;
-    }
-    .cs-chip-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--sky); flex-shrink: 0;
-      animation: cs-blink 2s ease-in-out infinite;
-    }
-    @keyframes cs-blink {
-      0%,100% { opacity:.5; transform:scale(1); }
-      50%      { opacity:1;  transform:scale(1.45); }
-    }
-    .cs-headline {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(36px, 6.5vw, 80px);
-      font-weight: 800; color: var(--white);
-      line-height: 1.08; letter-spacing: -.03em;
-      margin-bottom: 18px; animation: cs-fadein .8s ease .2s both;
-    }
-    .cs-headline em {
-      font-style: normal; color: var(--sky); display: block;
-      font-size: .62em; letter-spacing: -.01em; margin-top: 6px; opacity: .92;
-    }
-    .cs-sub {
-      font-size: 16px; color: rgba(255,255,255,.56);
-      max-width: 440px; line-height: 1.75; margin-bottom: 48px;
-      animation: cs-fadein .8s ease .3s both;
-    }
-    .cs-sub strong { color: rgba(75,175,214,.9); font-weight: 600; }
-    .cs-countdown {
-      display: flex; align-items: center; gap: 16px;
-      margin-bottom: 50px; animation: cs-fadein .8s ease .4s both;
-      flex-wrap: wrap; justify-content: center;
-    }
-    .cs-sep {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(26px, 4vw, 46px); font-weight: 700;
-      color: rgba(75,175,214,.38); line-height: 1;
-      padding-bottom: 22px; user-select: none;
-    }
-    .cs-box {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      min-width: 108px; padding: 22px 18px 18px;
-      background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.1);
-      border-radius: 18px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      position: relative; overflow: hidden; cursor: default;
-      transition: border-color .25s ease, background .25s ease;
-    }
-    .cs-box::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--blue), var(--sky));
-    }
-    .cs-box:hover { background: rgba(255,255,255,.08); border-color: rgba(75,175,214,.3); }
-    .cs-num {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(30px, 4.5vw, 52px); font-weight: 800;
-      color: var(--white); line-height: 1; letter-spacing: -.02em;
-      min-width: 2ch; text-align: center;
-    }
-    .cs-num.tick { animation: cs-num-tick .22s ease; }
-    @keyframes cs-num-tick {
-      0%   { transform: translateY(-6px); opacity: .5; }
-      100% { transform: translateY(0);    opacity: 1; }
-    }
-    .cs-lbl {
-      font-size: 11px; font-weight: 600; text-transform: uppercase;
-      letter-spacing: .14em; color: rgba(255,255,255,.36); margin-top: 9px;
-    }
-    .cs-contact {
-      display: flex; align-items: center; gap: 14px;
-      animation: cs-fadein .8s ease .55s both;
-      flex-wrap: wrap; justify-content: center;
-    }
-    .cs-contact a {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: 14px; font-weight: 600; color: rgba(255,255,255,.46);
-      transition: color .2s ease;
-    }
-    .cs-contact a svg { width: 14px; height: 14px; flex-shrink: 0; }
-    .cs-contact a:hover { color: var(--sky); }
-    .cs-contact-sep { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,.2); }
-    .cs-waves {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      pointer-events: none; line-height: 0;
-    }
-    .cs-waves svg { display: block; width: 100%; }
-    .cs-wave  { animation: cs-wavm 9s  ease-in-out       infinite; transform-origin: center; }
-    .cs-wave2 { animation: cs-wavm 11s ease-in-out 1.5s  infinite reverse; transform-origin: center; }
-    .cs-wave3 { animation: cs-wavm 7s  ease-in-out 3s    infinite; transform-origin: center; }
-    @keyframes cs-wavm {
-      0%,100% { transform: scaleX(1) translateX(0); }
-      50%      { transform: scaleX(1.06) translateX(-1.5%); }
-    }
-    @keyframes cs-fadein {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 600px) {
-      .cs-sep { display: none; }
-      .cs-box { min-width: 68px; padding: 16px 10px 14px; border-radius: 14px; }
-      .cs-countdown { gap: 10px; }
-      .cs-logo { height: 40px; }
-      .cs-content { padding-bottom: 140px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .cs-particle, .cs-wave, .cs-wave2, .cs-wave3, .cs-chip-dot { animation: none; }
-      #cs-overlay * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-    }
-
-    /* ── Form validation states ── */
-    .f-ctrl.error { border-color: #EF4444; box-shadow: 0 0 0 3px rgba(239,68,68,.1); }
-    .f-ctrl.error:focus { border-color: #EF4444; box-shadow: 0 0 0 3px rgba(239,68,68,.15); }
-    .f-err { font-size: 12px; color: #EF4444; margin-top: 4px; display: none; }
-    .f-err.show { display: block; }
-    .f-lbl .req { color: #EF4444; margin-left: 2px; font-weight: 700; }
-    .f-submit:disabled { opacity: .65; cursor: not-allowed; transform: none !important; }
-    #fError { display:none; font-size:13px; color:#EF4444; text-align:center; margin-top:10px; padding:10px; background:rgba(239,68,68,.07); border-radius:var(--r); }
-    #fError.show { display:block; }
   </style>
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
-
-<!-- ══ COMING SOON OVERLAY — rimuovere dopo il 15 Giugno 2026 ══ -->
-<div id="cs-overlay" role="dialog" aria-modal="true" aria-label="Sito in arrivo — 15 Giugno 2026">
-  <div class="cs-bg-g1" aria-hidden="true"></div>
-  <div class="cs-bg-g2" aria-hidden="true"></div>
-  <div class="cs-bg-g3" aria-hidden="true"></div>
-  <div id="cs-particles" aria-hidden="true"></div>
-
-  <div class="cs-content">
-    <a href="#" class="cs-logo-wrap" aria-label="Reacqua">
-      <img src="assets/logo.png" alt="Reacqua" class="cs-logo">
-    </a>
-
-    <div class="cs-chip">
-      <span class="cs-chip-dot"></span>
-      Prossimamente Online
-    </div>
-
-    <h1 class="cs-headline">
-      Stiamo Arrivando
-      <em>15 Giugno 2026</em>
-    </h1>
-
-    <p class="cs-sub">
-      Il nostro nuovo sito sarà online tra <strong>pochi giorni</strong>.
-      Preparati a scoprire le nostre soluzioni idrauliche e antincendio.
-    </p>
-
-    <div class="cs-countdown" role="timer" aria-live="polite" aria-label="Conto alla rovescia al lancio">
-      <div class="cs-box">
-        <span class="cs-num" id="cs-days">00</span>
-        <span class="cs-lbl">Giorni</span>
-      </div>
-      <div class="cs-sep" aria-hidden="true">:</div>
-      <div class="cs-box">
-        <span class="cs-num" id="cs-hours">00</span>
-        <span class="cs-lbl">Ore</span>
-      </div>
-      <div class="cs-sep" aria-hidden="true">:</div>
-      <div class="cs-box">
-        <span class="cs-num" id="cs-minutes">00</span>
-        <span class="cs-lbl">Minuti</span>
-      </div>
-      <div class="cs-sep" aria-hidden="true">:</div>
-      <div class="cs-box">
-        <span class="cs-num" id="cs-seconds">00</span>
-        <span class="cs-lbl">Secondi</span>
-      </div>
-    </div>
-
-    <div class="cs-contact">
-      <a href="tel:+393483367110" aria-label="Chiamaci al +39 3483367110">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.07 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        +39 3483367110
-      </a>
-      <div class="cs-contact-sep" aria-hidden="true"></div>
-      <a href="mailto:info@reacqua.com" aria-label="Scrivici a info@reacqua.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        info@reacqua.com
-      </a>
-    </div>
-  </div>
-
-  <div class="cs-waves" aria-hidden="true">
-    <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path class="cs-wave"  d="M0 80 Q180 20 360 80 Q540 140 720 80 Q900 20 1080 80 Q1260 140 1440 80 L1440 200 L0 200Z" fill="rgba(75,175,214,.05)"/>
-      <path class="cs-wave2" d="M0 105 Q240 45 480 105 Q720 165 960 105 Q1200 45 1440 105 L1440 200 L0 200Z" fill="rgba(27,108,168,.07)"/>
-      <path class="cs-wave3" d="M0 130 Q360 70 720 130 Q1080 190 1440 130 L1440 200 L0 200Z" fill="rgba(10,46,82,.2)"/>
-    </svg>
-  </div>
-</div>
 
 <!-- ══ NAVBAR ══ -->
 <nav class="nav" id="nav">
   <div class="wrap">
     <div class="nav__inner">
       <a class="nav__logo" href="#top" aria-label="Reacqua – Torna all'inizio">
-        <img src="assets/logo.png" alt="Reacqua" class="nav__logo-img">
+        <svg viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <circle cx="17" cy="17" r="17" fill="#0A2E52"/>
+          <path d="M17 7C17 7 9.5 16 9.5 21C9.5 25 12.9 28.5 17 28.5C21.1 28.5 24.5 25 24.5 21C24.5 16 17 7 17 7Z" fill="#4BAFD6" opacity=".9"/>
+          <path d="M17 13C17 13 12.5 19 12.5 22C12.5 24.5 14.5 26.5 17 26.5C19.5 26.5 21.5 24.5 21.5 22C21.5 19 17 13 17 13Z" fill="#E8F4FD" opacity=".55"/>
+        </svg>
+        Re<span>acqua</span>
       </a>
       <nav class="nav__links" aria-label="Navigazione principale">
         <a href="#servizi">Servizi</a>
@@ -665,7 +417,7 @@
       <div class="nav__right">
         <a class="nav__tel" href="tel:+390200000000">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.07 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-          +39 3483367110
+          +39 02 0000 0000
         </a>
         <a href="#contatti" class="btn btn-primary">Richiedi Preventivo</a>
       </div>
@@ -785,7 +537,7 @@
         </div>
         <h3 class="svc-title">Impianti Idrici</h3>
         <p class="svc-desc">Progettazione e installazione di impianti di adduzione e distribuzione idrica per uso civile e industriale, nel pieno rispetto delle normative vigenti.</p>
-        <a href="servizi/impianti-idrici.html" class="svc-more">
+        <a href="#contatti" class="svc-more">
           Scopri di più
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -798,7 +550,7 @@
         </div>
         <h3 class="svc-title">Sistemi Antincendio</h3>
         <p class="svc-desc">Installazione di impianti sprinkler, idranti, naspi e sistemi di rilevamento incendio per edifici civili, commerciali e industriali. Certificazione UNI EN.</p>
-        <a href="servizi/sistemi-antincendio.html" class="svc-more">
+        <a href="#contatti" class="svc-more">
           Scopri di più
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -811,7 +563,7 @@
         </div>
         <h3 class="svc-title">Installazioni Idrauliche</h3>
         <p class="svc-desc">Realizzazione di impianti idraulici completi: fognature, sistemi di scarico, gruppi di pressione, centrali termoidrauliche e molto altro.</p>
-        <a href="servizi/installazioni-idrauliche.html" class="svc-more">
+        <a href="#contatti" class="svc-more">
           Scopri di più
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -824,7 +576,7 @@
         </div>
         <h3 class="svc-title">Manutenzione Programmata</h3>
         <p class="svc-desc">Contratti di manutenzione periodica per garantire l'efficienza e la conformità normativa degli impianti nel tempo. Pronto intervento 24/7.</p>
-        <a href="servizi/manutenzione.html" class="svc-more">
+        <a href="#contatti" class="svc-more">
           Scopri di più
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -1016,7 +768,7 @@
             <div class="c-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.07 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
             <div>
               <div class="c-lbl">Telefono</div>
-              <a class="c-val" href="tel:+39 3483367110">+39 3483367110</a>
+              <a class="c-val" href="tel:+390200000000">+39 02 0000 0000</a>
             </div>
           </div>
           <div class="contact-item r d2">
@@ -1049,20 +801,17 @@
         <form id="cForm" novalidate>
           <div class="f-row">
             <div class="f-grp">
-              <label class="f-lbl" for="fn">Nome<span class="req" aria-hidden="true">*</span></label>
+              <label class="f-lbl" for="fn">Nome *</label>
               <input class="f-ctrl" type="text" id="fn" name="nome" placeholder="Mario" required autocomplete="given-name">
-              <span class="f-err" id="err-fn">Il nome è obbligatorio</span>
             </div>
             <div class="f-grp">
-              <label class="f-lbl" for="ln">Cognome<span class="req" aria-hidden="true">*</span></label>
+              <label class="f-lbl" for="ln">Cognome *</label>
               <input class="f-ctrl" type="text" id="ln" name="cognome" placeholder="Rossi" required autocomplete="family-name">
-              <span class="f-err" id="err-ln">Il cognome è obbligatorio</span>
             </div>
           </div>
           <div class="f-grp">
-            <label class="f-lbl" for="em">Email<span class="req" aria-hidden="true">*</span></label>
+            <label class="f-lbl" for="em">Email *</label>
             <input class="f-ctrl" type="email" id="em" name="email" placeholder="mario.rossi@azienda.it" required autocomplete="email">
-            <span class="f-err" id="err-em">Inserisci un indirizzo email valido</span>
           </div>
           <div class="f-grp">
             <label class="f-lbl" for="ph">Telefono</label>
@@ -1088,7 +837,6 @@
             Invia Richiesta
           </button>
           <p class="f-note">Inviando il modulo accetti la nostra <a href="#">Privacy Policy</a>. I tuoi dati non verranno condivisi con terzi.</p>
-          <div id="fError">Invio non riuscito. Riprova o contattaci direttamente per email.</div>
         </form>
         <div id="fOk" hidden style="text-align:center;padding:32px 0;">
           <div style="width:54px;height:54px;background:var(--pale);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
@@ -1107,8 +855,13 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <a class="nav__logo" href="#top" aria-label="Reacqua – Torna all'inizio">
-          <img src="assets/logo.png" alt="Reacqua" class="nav__logo-img nav__logo-img--footer">
+        <a class="nav__logo" href="#top" aria-label="Reacqua – Torna all'inizio" style="color:white;">
+          <svg viewBox="0 0 34 34" fill="none" aria-hidden="true" style="width:32px;height:32px;">
+            <circle cx="17" cy="17" r="17" fill="#1B6CA8"/>
+            <path d="M17 7C17 7 9.5 16 9.5 21C9.5 25 12.9 28.5 17 28.5C21.1 28.5 24.5 25 24.5 21C24.5 16 17 7 17 7Z" fill="#4BAFD6" opacity=".9"/>
+            <path d="M17 13C17 13 12.5 19 12.5 22C12.5 24.5 14.5 26.5 17 26.5C19.5 26.5 21.5 24.5 21.5 22C21.5 19 17 13 17 13Z" fill="white" opacity=".45"/>
+          </svg>
+          Re<span>acqua</span>
         </a>
         <p class="footer-desc">Soluzioni professionali nel settore idrico e antincendio. Qualità, sicurezza e affidabilità al servizio dei tuoi impianti.</p>
         <div class="footer-social" aria-label="Social">
@@ -1149,7 +902,7 @@
       <div>
         <h4 class="footer-col-title">Contatti</h4>
         <div class="footer-links">
-          <a href="tel:+39 3483367110">+39 3483367110</a>
+          <a href="tel:+390200000000">+39 02 0000 0000</a>
           <a href="mailto:info@reacqua.com">info@reacqua.com</a>
           <span>Via Esempio 1</span>
           <span>20100 Milano (MI)</span>
@@ -1159,7 +912,7 @@
     </div>
 
     <div class="footer-bot">
-      <p class="footer-copy">© 2026 Reacqua S.r.l. – Tutti i diritti riservati</p>
+      <p class="footer-copy">© 2024 Reacqua S.r.l. – Tutti i diritti riservati</p>
       <nav class="footer-legal" aria-label="Legal">
         <a href="#">Privacy Policy</a>
         <a href="#">Cookie Policy</a>
@@ -1179,14 +932,9 @@
   const drawer = document.getElementById('drawer');
   burger.addEventListener('click', () => {
     const open = drawer.classList.toggle('open');
-    burger.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', open);
   });
-  function closeDrawer() {
-    drawer.classList.remove('open');
-    burger.classList.remove('open');
-    burger.setAttribute('aria-expanded','false');
-  }
+  function closeDrawer() { drawer.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
 
   // Scroll reveal
   new IntersectionObserver((entries) => {
@@ -1217,135 +965,16 @@
   }, {threshold:.5});
   document.querySelectorAll('.cnt').forEach(el => cObs.observe(el));
 
-  // ── EmailJS ──────────────────────────────────────────────────
-  // SETUP (una tantum):
-  //  1. Registrati su https://www.emailjs.com (piano Free: 200 email/mese)
-  //  2. Dashboard → Email Services → Add Service → SMTP → Host: smtp.register.it  Porta: 465
-  //     Copia il Service ID (es. "service_xxxxxxx") e incollalo in EMAILJS_SERVICE_ID
-  //  3. Dashboard → Email Templates → Create Template
-  //     Imposta "To Email" = marco.cocito@reacqua.com
-  //     Nel corpo usa le variabili: {{nome}} {{cognome}} {{email}} {{telefono}} {{servizio}} {{messaggio}}
-  //     Copia il Template ID (es. "template_xxxxxxx") e incollalo in EMAILJS_TEMPLATE_ID
-  //  4. Dashboard → Account → General → Public Key
-  //     Incollala in EMAILJS_PUBLIC_KEY
-  // ─────────────────────────────────────────────────────────────
-  const EMAILJS_PUBLIC_KEY   = 'qWSrjHeUSsKBxPhUu';
-  const EMAILJS_SERVICE_ID   = 'service_m6ymt3b';
-  const EMAILJS_TEMPLATE_ID  = 'template_b5o98hg';
-
-  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-
-  const form   = document.getElementById('cForm');
-  const fBtn   = document.getElementById('fBtn');
-  const fOk    = document.getElementById('fOk');
-  const fError = document.getElementById('fError');
-
-  function setError(inputId, errId, show) {
-    const input = document.getElementById(inputId);
-    const err   = document.getElementById(errId);
-    input.classList.toggle('error', show);
-    err.classList.toggle('show', show);
-  }
-
-  function validateForm() {
-    const fn  = document.getElementById('fn').value.trim();
-    const ln  = document.getElementById('ln').value.trim();
-    const em  = document.getElementById('em').value.trim();
-    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
-    let valid = true;
-
-    setError('fn', 'err-fn', !fn);   if (!fn) valid = false;
-    setError('ln', 'err-ln', !ln);   if (!ln) valid = false;
-    setError('em', 'err-em', !emailOk); if (!emailOk) valid = false;
-
-    return valid;
-  }
-
-  // rimuovi errore al focus
-  ['fn','ln','em'].forEach(id => {
-    document.getElementById(id).addEventListener('input', () => {
-      document.getElementById(id).classList.remove('error');
-      document.getElementById('err-' + id).classList.remove('show');
-      fError.classList.remove('show');
-    });
-  });
-
-  form.addEventListener('submit', async e => {
+  // Form submit
+  const form = document.getElementById('cForm');
+  const fBtn = document.getElementById('fBtn');
+  const fOk  = document.getElementById('fOk');
+  form.addEventListener('submit', e => {
     e.preventDefault();
-    fError.classList.remove('show');
-    if (!validateForm()) return;
-
     fBtn.disabled = true;
-    fBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin .8s linear infinite"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Invio in corso…';
-
-    try {
-      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
-      form.hidden = true;
-      fOk.hidden  = false;
-    } catch (err) {
-      fBtn.disabled = false;
-      fBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg> Invia Richiesta';
-      fError.classList.add('show');
-    }
+    fBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin .8s linear infinite"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Invio…';
+    setTimeout(() => { form.hidden = true; fOk.hidden = false; }, 1400);
   });
-
-  // ── Coming Soon Countdown ────────────────────────────────────
-  (function() {
-    const overlay = document.getElementById('cs-overlay');
-    if (!overlay) return;
-
-    // Target: 15 Giugno 2026 ore 08:00 CEST (UTC+2)
-    const TARGET = new Date('2026-06-15T08:00:00+02:00').getTime();
-
-    function pad(n) { return String(n).padStart(2, '0'); }
-
-    function tick(el, val) {
-      const next = pad(val);
-      if (el.textContent !== next) {
-        el.classList.remove('tick');
-        void el.offsetWidth;
-        el.classList.add('tick');
-        el.textContent = next;
-      }
-    }
-
-    function updateCountdown() {
-      const diff = TARGET - Date.now();
-      if (diff <= 0) {
-        overlay.classList.add('cs-hide');
-        setTimeout(() => { overlay.remove(); document.body.style.overflow = ''; }, 850);
-        return;
-      }
-      tick(document.getElementById('cs-days'),    Math.floor(diff / 86400000));
-      tick(document.getElementById('cs-hours'),   Math.floor((diff % 86400000) / 3600000));
-      tick(document.getElementById('cs-minutes'), Math.floor((diff % 3600000)  / 60000));
-      tick(document.getElementById('cs-seconds'), Math.floor((diff % 60000)    / 1000));
-    }
-
-    document.body.style.overflow = 'hidden';
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    // Floating particles
-    const container = document.getElementById('cs-particles');
-    const mediaOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (container && mediaOk) {
-      for (let i = 0; i < 20; i++) {
-        const p = document.createElement('div');
-        p.className = 'cs-particle';
-        const size = 4 + Math.random() * 13;
-        p.style.cssText = [
-          `width:${size}px`,
-          `height:${size}px`,
-          `left:${Math.random() * 100}%`,
-          `animation-duration:${9 + Math.random() * 14}s`,
-          `animation-delay:${Math.random() * 10}s`,
-          `opacity:${.15 + Math.random() * .45}`
-        ].join(';');
-        container.appendChild(p);
-      }
-    }
-  })();
 
   // Smooth scroll (offset for fixed nav)
   document.querySelectorAll('a[href^="#"]').forEach(a => {
