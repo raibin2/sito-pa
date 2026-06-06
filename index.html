@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Reacqua – Impianti Idrici e Sistemi Antincendio</title>
   <meta name="description" content="Reacqua: soluzioni professionali per impianti idrici, sistemi antincendio e installazioni idrauliche. Qualità certificata, interventi puntuali.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -323,6 +325,7 @@
     .f-submit { width: 100%; justify-content: center; margin-top: 6px; padding: 15px; font-size: 15px; }
     .f-note { font-size: 12px; color: var(--text-3); text-align: center; margin-top: 10px; }
     .f-note a { color: var(--blue); text-decoration: underline; }
+    .f-honeypot { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
 
     /* ════════════════════════════
        FOOTER
@@ -573,7 +576,7 @@
     #fError.show { display:block; }
   </style>
   <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -678,12 +681,12 @@
 
 <!-- mobile drawer -->
 <div class="drawer" id="drawer" role="navigation" aria-label="Menu mobile">
-  <a href="#servizi"        onclick="closeDrawer()">Servizi</a>
-  <a href="#chi-siamo"      onclick="closeDrawer()">Chi Siamo</a>
-  <a href="#perche-noi"     onclick="closeDrawer()">Perché Noi</a>
-  <a href="#certificazioni" onclick="closeDrawer()">Certificazioni</a>
-  <a href="#contatti"       onclick="closeDrawer()">Contatti</a>
-  <a href="#contatti" class="btn btn-primary" onclick="closeDrawer()">Richiedi Preventivo</a>
+  <a href="#servizi">Servizi</a>
+  <a href="#chi-siamo">Chi Siamo</a>
+  <a href="#perche-noi">Perché Noi</a>
+  <a href="#certificazioni">Certificazioni</a>
+  <a href="#contatti">Contatti</a>
+  <a href="#contatti" class="btn btn-primary">Richiedi Preventivo</a>
 </div>
 
 <!-- ══ HERO ══ -->
@@ -1050,23 +1053,23 @@
           <div class="f-row">
             <div class="f-grp">
               <label class="f-lbl" for="fn">Nome<span class="req" aria-hidden="true">*</span></label>
-              <input class="f-ctrl" type="text" id="fn" name="nome" placeholder="Mario" required autocomplete="given-name">
+              <input class="f-ctrl" type="text" id="fn" name="nome" placeholder="Mario" required autocomplete="given-name" maxlength="50">
               <span class="f-err" id="err-fn">Il nome è obbligatorio</span>
             </div>
             <div class="f-grp">
               <label class="f-lbl" for="ln">Cognome<span class="req" aria-hidden="true">*</span></label>
-              <input class="f-ctrl" type="text" id="ln" name="cognome" placeholder="Rossi" required autocomplete="family-name">
+              <input class="f-ctrl" type="text" id="ln" name="cognome" placeholder="Rossi" required autocomplete="family-name" maxlength="50">
               <span class="f-err" id="err-ln">Il cognome è obbligatorio</span>
             </div>
           </div>
           <div class="f-grp">
             <label class="f-lbl" for="em">Email<span class="req" aria-hidden="true">*</span></label>
-            <input class="f-ctrl" type="email" id="em" name="email" placeholder="mario.rossi@azienda.it" required autocomplete="email">
+            <input class="f-ctrl" type="email" id="em" name="email" placeholder="mario.rossi@azienda.it" required autocomplete="email" maxlength="100">
             <span class="f-err" id="err-em">Inserisci un indirizzo email valido</span>
           </div>
           <div class="f-grp">
             <label class="f-lbl" for="ph">Telefono</label>
-            <input class="f-ctrl" type="tel" id="ph" name="telefono" placeholder="+39 333 0000000" autocomplete="tel">
+            <input class="f-ctrl" type="tel" id="ph" name="telefono" placeholder="+39 333 0000000" autocomplete="tel" maxlength="20">
           </div>
           <div class="f-grp">
             <label class="f-lbl" for="sv">Servizio di interesse</label>
@@ -1081,7 +1084,10 @@
           </div>
           <div class="f-grp">
             <label class="f-lbl" for="msg">Messaggio</label>
-            <textarea class="f-ctrl" id="msg" name="messaggio" placeholder="Descrivi brevemente il tuo progetto o la tua esigenza..."></textarea>
+            <textarea class="f-ctrl" id="msg" name="messaggio" placeholder="Descrivi brevemente il tuo progetto o la tua esigenza..." maxlength="1000"></textarea>
+          </div>
+          <div class="f-honeypot" aria-hidden="true">
+            <input type="text" name="_website" tabindex="-1" autocomplete="off">
           </div>
           <button type="submit" class="btn btn-primary f-submit" id="fBtn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
@@ -1187,6 +1193,7 @@
     burger.classList.remove('open');
     burger.setAttribute('aria-expanded','false');
   }
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
 
   // Scroll reveal
   new IntersectionObserver((entries) => {
@@ -1223,7 +1230,7 @@
   //  2. Dashboard → Email Services → Add Service → SMTP → Host: smtp.register.it  Porta: 465
   //     Copia il Service ID (es. "service_xxxxxxx") e incollalo in EMAILJS_SERVICE_ID
   //  3. Dashboard → Email Templates → Create Template
-  //     Imposta "To Email" = marco.cocito@reacqua.com
+  //     Imposta "To Email" = [email aziendale]
   //     Nel corpo usa le variabili: {{nome}} {{cognome}} {{email}} {{telefono}} {{servizio}} {{messaggio}}
   //     Copia il Template ID (es. "template_xxxxxxx") e incollalo in EMAILJS_TEMPLATE_ID
   //  4. Dashboard → Account → General → Public Key
@@ -1270,21 +1277,47 @@
     });
   });
 
+  const RATE_KEY = 'rq_last_submit';
+  const RATE_MS  = 60000;
+
+  function setBtnLoading(loading) {
+    if (loading) {
+      fBtn.disabled = true;
+      fBtn.textContent = 'Invio in corso…';
+    } else {
+      fBtn.disabled = false;
+      fBtn.textContent = 'Invia Richiesta';
+    }
+  }
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
     fError.classList.remove('show');
+
+    // Honeypot check
+    const honey = form.querySelector('input[name="_website"]');
+    if (honey && honey.value.trim() !== '') return;
+
+    // Rate limiting
+    const last = +localStorage.getItem(RATE_KEY) || 0;
+    if (Date.now() - last < RATE_MS) {
+      fError.textContent = 'Attendi un minuto prima di inviare un\'altra richiesta.';
+      fError.classList.add('show');
+      return;
+    }
+
     if (!validateForm()) return;
 
-    fBtn.disabled = true;
-    fBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin .8s linear infinite"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Invio in corso…';
+    setBtnLoading(true);
 
     try {
       await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
+      localStorage.setItem(RATE_KEY, Date.now());
       form.hidden = true;
       fOk.hidden  = false;
     } catch (err) {
-      fBtn.disabled = false;
-      fBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg> Invia Richiesta';
+      setBtnLoading(false);
+      fError.textContent = 'Invio non riuscito. Riprova o contattaci direttamente per email.';
       fError.classList.add('show');
     }
   });
