@@ -1225,19 +1225,11 @@
   document.querySelectorAll('.cnt').forEach(el => cObs.observe(el));
 
   // ── EmailJS ──────────────────────────────────────────────────
-  // SETUP (una tantum):
-  //  1. Registrati su https://www.emailjs.com (piano Free: 200 email/mese)
-  //  2. Dashboard → Email Services → Add Service → SMTP → Host: smtp.register.it  Porta: 465
-  //     Copia il Service ID (es. "service_xxxxxxx") e incollalo in EMAILJS_SERVICE_ID
-  //  3. Dashboard → Email Templates → Create Template
-  //     Imposta "To Email" = [email aziendale]
-  //     Nel corpo usa le variabili: {{nome}} {{cognome}} {{email}} {{telefono}} {{servizio}} {{messaggio}}
-  //     Copia il Template ID (es. "template_xxxxxxx") e incollalo in EMAILJS_TEMPLATE_ID
-  //  4. Dashboard → Account → General → Public Key
-  //     Incollala in EMAILJS_PUBLIC_KEY
+  // Mittente: info@reacqua.com (SMTP authsmtp.register.it, porta 465)
+  // Destinatario: marco.cocito@reacqua.com (impostato nel template)
   // ─────────────────────────────────────────────────────────────
   const EMAILJS_PUBLIC_KEY   = 'qWSrjHeUSsKBxPhUu';
-  const EMAILJS_SERVICE_ID   = 'service_m6ymt3b';
+  const EMAILJS_SERVICE_ID   = 'service_ldd6hvx';
   const EMAILJS_TEMPLATE_ID  = 'template_b5o98hg';
 
   emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
