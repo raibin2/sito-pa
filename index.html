@@ -422,9 +422,7 @@
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       overflow: hidden;
-      transition: opacity .8s ease;
     }
-    #cs-overlay.cs-hide { opacity: 0; pointer-events: none; }
     .cs-bg-g1 {
       position: absolute; top: -20%; right: -10%;
       width: 700px; height: 700px;
@@ -500,46 +498,40 @@
       animation: cs-fadein .8s ease .3s both;
     }
     .cs-sub strong { color: rgba(75,175,214,.9); font-weight: 600; }
-    .cs-countdown {
-      display: flex; align-items: center; gap: 16px;
+    .cs-badge-row {
+      display: flex; align-items: center; gap: 14px;
       margin-bottom: 50px; animation: cs-fadein .8s ease .4s both;
       flex-wrap: wrap; justify-content: center;
     }
-    .cs-sep {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(26px, 4vw, 46px); font-weight: 700;
-      color: rgba(75,175,214,.38); line-height: 1;
-      padding-bottom: 22px; user-select: none;
-    }
-    .cs-box {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      min-width: 108px; padding: 22px 18px 18px;
+    .cs-pulse-card {
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 28px;
       background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.1);
       border-radius: 18px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      position: relative; overflow: hidden; cursor: default;
-      transition: border-color .25s ease, background .25s ease;
+      position: relative; overflow: hidden;
     }
-    .cs-box::before {
+    .cs-pulse-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
       background: linear-gradient(90deg, var(--blue), var(--sky));
     }
-    .cs-box:hover { background: rgba(255,255,255,.08); border-color: rgba(75,175,214,.3); }
-    .cs-num {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(30px, 4.5vw, 52px); font-weight: 800;
-      color: var(--white); line-height: 1; letter-spacing: -.02em;
-      min-width: 2ch; text-align: center;
+    .cs-pulse-icon {
+      width: 40px; height: 40px; min-width: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 22px rgba(27,108,168,.35);
+      animation: cs-pulse-scale 2.4s ease-in-out infinite;
     }
-    .cs-num.tick { animation: cs-num-tick .22s ease; }
-    @keyframes cs-num-tick {
-      0%   { transform: translateY(-6px); opacity: .5; }
-      100% { transform: translateY(0);    opacity: 1; }
+    .cs-pulse-icon svg { width: 18px; height: 18px; color: var(--white); stroke-width: 2; }
+    @keyframes cs-pulse-scale {
+      0%,100% { transform: scale(1); }
+      50%      { transform: scale(1.08); }
     }
-    .cs-lbl {
-      font-size: 11px; font-weight: 600; text-transform: uppercase;
-      letter-spacing: .14em; color: rgba(255,255,255,.36); margin-top: 9px;
+    .cs-pulse-text { text-align: left; }
+    .cs-pulse-title {
+      font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700;
+      color: var(--white); margin-bottom: 2px;
     }
+    .cs-pulse-desc { font-size: 12px; color: rgba(255,255,255,.5); }
     .cs-contact {
       display: flex; align-items: center; gap: 14px;
       animation: cs-fadein .8s ease .55s both;
@@ -570,14 +562,12 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     @media (max-width: 600px) {
-      .cs-sep { display: none; }
-      .cs-box { min-width: 68px; padding: 16px 10px 14px; border-radius: 14px; }
-      .cs-countdown { gap: 10px; }
+      .cs-pulse-card { padding: 14px 20px; }
       .cs-logo { height: 40px; }
       .cs-content { padding-bottom: 140px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .cs-particle, .cs-wave, .cs-wave2, .cs-wave3, .cs-chip-dot { animation: none; }
+      .cs-particle, .cs-wave, .cs-wave2, .cs-wave3, .cs-chip-dot, .cs-pulse-icon { animation: none; }
       #cs-overlay * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
     }
 
@@ -596,8 +586,8 @@
 </head>
 <body>
 
-<!-- ══ COMING SOON OVERLAY — rimuovere dopo il 15 Giugno 2026 ══ -->
-<div id="cs-overlay" role="dialog" aria-modal="true" aria-label="Sito in arrivo — 15 Giugno 2026">
+<!-- ══ COMING SOON OVERLAY (permanente) ══ -->
+<div id="cs-overlay" role="dialog" aria-modal="true" aria-label="Sito in arrivo">
   <div class="cs-bg-g1" aria-hidden="true"></div>
   <div class="cs-bg-g2" aria-hidden="true"></div>
   <div class="cs-bg-g3" aria-hidden="true"></div>
@@ -615,33 +605,23 @@
 
     <h1 class="cs-headline">
       Stiamo Arrivando
-      <em>15 Giugno 2026</em>
+      <em>A Breve Online</em>
     </h1>
 
     <p class="cs-sub">
-      Il nostro nuovo sito sarà online tra <strong>pochi giorni</strong>.
+      Il nostro nuovo sito sarà disponibile <strong>a breve</strong>.
       Preparati a scoprire le nostre soluzioni idrauliche e antincendio.
     </p>
 
-    <div class="cs-countdown" role="timer" aria-live="polite" aria-label="Conto alla rovescia al lancio">
-      <div class="cs-box">
-        <span class="cs-num" id="cs-days">00</span>
-        <span class="cs-lbl">Giorni</span>
-      </div>
-      <div class="cs-sep" aria-hidden="true">:</div>
-      <div class="cs-box">
-        <span class="cs-num" id="cs-hours">00</span>
-        <span class="cs-lbl">Ore</span>
-      </div>
-      <div class="cs-sep" aria-hidden="true">:</div>
-      <div class="cs-box">
-        <span class="cs-num" id="cs-minutes">00</span>
-        <span class="cs-lbl">Minuti</span>
-      </div>
-      <div class="cs-sep" aria-hidden="true">:</div>
-      <div class="cs-box">
-        <span class="cs-num" id="cs-seconds">00</span>
-        <span class="cs-lbl">Secondi</span>
+    <div class="cs-badge-row">
+      <div class="cs-pulse-card">
+        <div class="cs-pulse-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="cs-pulse-text">
+          <div class="cs-pulse-title">Sito in costruzione</div>
+          <div class="cs-pulse-desc">Stiamo lavorando per offrirti la migliore esperienza</div>
+        </div>
       </div>
     </div>
 
@@ -1330,42 +1310,12 @@
     }
   });
 
-  // ── Coming Soon Countdown ────────────────────────────────────
+  // ── Coming Soon Overlay (permanente) ─────────────────────────
   (function() {
     const overlay = document.getElementById('cs-overlay');
     if (!overlay) return;
 
-    // Target: 15 Giugno 2026 ore 08:00 CEST (UTC+2)
-    const TARGET = new Date('2026-06-15T08:00:00+02:00').getTime();
-
-    function pad(n) { return String(n).padStart(2, '0'); }
-
-    function tick(el, val) {
-      const next = pad(val);
-      if (el.textContent !== next) {
-        el.classList.remove('tick');
-        void el.offsetWidth;
-        el.classList.add('tick');
-        el.textContent = next;
-      }
-    }
-
-    function updateCountdown() {
-      const diff = TARGET - Date.now();
-      if (diff <= 0) {
-        overlay.classList.add('cs-hide');
-        setTimeout(() => { overlay.remove(); document.body.style.overflow = ''; }, 850);
-        return;
-      }
-      tick(document.getElementById('cs-days'),    Math.floor(diff / 86400000));
-      tick(document.getElementById('cs-hours'),   Math.floor((diff % 86400000) / 3600000));
-      tick(document.getElementById('cs-minutes'), Math.floor((diff % 3600000)  / 60000));
-      tick(document.getElementById('cs-seconds'), Math.floor((diff % 60000)    / 1000));
-    }
-
     document.body.style.overflow = 'hidden';
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
 
     // Floating particles
     const container = document.getElementById('cs-particles');
