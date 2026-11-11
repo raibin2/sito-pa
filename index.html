@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Reacqua – Agenzia di rappresentanze per il settore idrico e antincendio</title>
   <meta name="description" content="Reacqua è un'agenzia di rappresentanze per trattamento acque, antincendio, energie rinnovabili, pompe, tubi e raccordi. 40 anni di esperienza al fianco di produttori leader.">
   <link rel="canonical" href="https://reacqua.com/">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48">
+  <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Reacqua","alternateName":"Reacqua Rappresentanze","url":"https://reacqua.com/","inLanguage":"it"}</script>
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -23,9 +28,8 @@
   <meta name="twitter:description" content="Reacqua è un'agenzia di rappresentanze per trattamento acque, antincendio, energie rinnovabili, pompe, tubi e raccordi. 40 anni di esperienza al fianco di produttori leader.">
   <meta name="twitter:image" content="https://reacqua.com/assets/logo.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/poppins-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
   <style>
     :root {
       --navy:      #0A2E52;
@@ -349,15 +353,6 @@
     .footer { background: var(--navy); padding: 68px 0 0; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,.1); }
     .footer-desc { font-size: 14px; color: rgba(255,255,255,.5); line-height: 1.7; margin-top: 14px; max-width: 270px; }
-    .footer-social { display: flex; gap: 10px; margin-top: 22px; }
-    .social-btn {
-      width: 34px; height: 34px; border-radius: 7px;
-      background: rgba(255,255,255,.08); display: flex;
-      align-items: center; justify-content: center;
-      transition: background var(--ease); cursor: pointer;
-    }
-    .social-btn:hover { background: rgba(255,255,255,.16); }
-    .social-btn svg { width: 15px; height: 15px; color: rgba(255,255,255,.65); }
     .footer-col-title { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 18px; }
     .footer-links { display: flex; flex-direction: column; gap: 9px; }
     .footer-links a, .footer-links span { font-size: 14px; color: rgba(255,255,255,.5); transition: color var(--ease); }
@@ -897,7 +892,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
             Invia Richiesta
           </button>
-          <p class="f-note">Inviando il modulo accetti la nostra <a href="#">Privacy Policy</a>. I tuoi dati non verranno condivisi con terzi.</p>
+          <p class="f-note">Inviando il modulo dichiari di aver letto l'<a href="privacy.html">informativa sulla privacy</a>. I dati servono solo per rispondere alla tua richiesta.</p>
           <div id="fError">Invio non riuscito. Riprova o contattaci direttamente per email.</div>
         </form>
         <div id="fOk" hidden style="text-align:center;padding:32px 0;">
@@ -921,17 +916,6 @@
           <img src="assets/logo.png" alt="Reacqua" class="nav__logo-img nav__logo-img--footer">
         </a>
         <p class="footer-desc">Agenzia di rappresentanze per le infrastrutture tecniche: trattamento acque, antincendio, energie rinnovabili, pompe, tubi e raccordi.</p>
-        <div class="footer-social" aria-label="Social">
-          <a class="social-btn" href="#" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a class="social-btn" href="#" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-          </a>
-          <a class="social-btn" href="#" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-        </div>
       </div>
 
       <div>
@@ -967,9 +951,9 @@
     <div class="footer-bot">
       <p class="footer-copy">© 2026 Reacqua – Tutti i diritti riservati</p>
       <nav class="footer-legal" aria-label="Legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Cookie Policy</a>
-        <a href="#">Note Legali</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="cookie.html">Cookie Policy</a>
+        <a href="note-legali.html">Note Legali</a>
       </nav>
     </div>
   </div>

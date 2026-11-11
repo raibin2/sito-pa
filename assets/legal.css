@@ -1,0 +1,31 @@
+:root{--navy:#0A2E52;--blue:#1B6CA8;--sky:#4BAFD6;--pale:#E8F4FD;--text:#1c2b3a;--text-2:#4a5a6a;--border:#dbe6ef}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+.lg-top{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:5}
+.lg-top__in{max-width:860px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.lg-top img{height:38px;width:auto;display:block}
+.lg-back{font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;text-decoration:none;color:var(--blue)}
+.lg-back:hover{text-decoration:underline}
+.lg{max-width:860px;margin:0 auto;padding:48px 24px 72px}
+.lg__label{font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:8px}
+.lg h1{font-family:'Poppins',sans-serif;font-size:clamp(28px,4vw,38px);line-height:1.2;color:var(--navy);margin-bottom:10px}
+.lg__upd{font-size:14px;color:var(--text-2);margin-bottom:34px}
+.lg h2{font-family:'Poppins',sans-serif;font-size:20px;color:var(--navy);margin:38px 0 10px}
+.lg h3{font-family:'Poppins',sans-serif;font-size:16px;color:var(--navy);margin:22px 0 6px}
+.lg p{margin-bottom:14px;color:var(--text)}
+.lg ul{margin:0 0 14px 22px}
+.lg li{margin-bottom:6px}
+.lg__box{background:var(--pale);border-left:4px solid var(--blue);border-radius:8px;padding:16px 20px;margin:0 0 20px}
+.lg__box p{margin:0}
+.lg table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:14.5px}
+.lg th,.lg td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.lg th{background:var(--pale);font-family:'Poppins',sans-serif;font-size:13px;color:var(--navy)}
+.lg-tbl{overflow-x:auto}
+.lg-foot{background:var(--navy);color:rgba(255,255,255,.75);font-size:13px}
+.lg-foot__in{max-width:860px;margin:0 auto;padding:22px 24px;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between}
+.lg-foot a{color:rgba(255,255,255,.85);text-decoration:none}
+.lg-foot a:hover{text-decoration:underline}
+.lg-foot nav{display:flex;gap:18px;flex-wrap:wrap}
+@media(max-width:560px){.lg{padding:34px 20px 56px}.lg-top__in{padding:12px 20px}}
