@@ -510,6 +510,34 @@
       .hero__art-logo { clip-path: none; opacity: 1; }
       .hero__ring, .hero__drop, .hero__wave { display: none; }
     }
+    /* ── Mobile: focus sulle rappresentanze ── */
+    @media (max-width: 768px) {
+      .sec { padding: 44px 0; }
+      #rappresentanze .why-head { margin-bottom: 20px; }
+      #rappresentanze .lead { font-size: 15px; }
+      #rappresentanze .why-grid { display: none; }
+      .rgroup { margin: 28px 0 12px; font-size: 12px; }
+      .rgrid { gap: 14px; }
+      .rcard__logo, .rcard--lg .rcard__logo { height: 84px; padding: 18px 22px 8px; }
+      .rcard__logo--dark { padding: 10px 22px; }
+      .rcard__body { padding: 6px 18px 18px; }
+      .rcard__name { font-size: 17px; margin-bottom: 6px; }
+      .rcard__desc { font-size: 13.5px; line-height: 1.55; margin-bottom: 10px; }
+      .rcard--txt .rcard__body { padding-top: 22px; }
+      .rgroup-sg { margin: 28px 0 12px; }
+      .rgroup-sg__head { padding: 14px 18px; }
+      #servizi .lead, #servizi .svc-card .svc-desc { display: none; }
+      #servizi .h2 { margin-bottom: 0; }
+      .svc-grid--5 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+      .svc-grid--5 .svc-card { max-width: none; min-width: 0; flex: none; padding: 16px 14px; display: flex; align-items: center; gap: 10px; }
+      .svc-grid--5 .svc-card:last-child { grid-column: 1 / -1; }
+      .svc-grid--5 .svc-icon { width: 34px; height: 34px; margin: 0; flex-shrink: 0; }
+      .svc-grid--5 .svc-icon svg { width: 17px; height: 17px; }
+      .svc-grid--5 .svc-title { font-size: 14px; margin: 0; line-height: 1.25; }
+      #chi-siamo .about-vis, #chi-siamo .about-list { display: none; }
+      #chi-siamo .about-grid { gap: 0; }
+      #chi-siamo .lead { font-size: 15px; }
+    }
   </style>
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
@@ -525,9 +553,9 @@
         <img src="assets/logo.png" alt="Reacqua" class="nav__logo-img">
       </a>
       <nav class="nav__links" aria-label="Navigazione principale">
+        <a href="#rappresentanze">Rappresentanze</a>
         <a href="#servizi">Settori</a>
         <a href="#chi-siamo">Chi Siamo</a>
-        <a href="#rappresentanze">Rappresentanze</a>
         <a href="#contatti">Contatti</a>
       </nav>
       <div class="nav__right">
@@ -546,9 +574,9 @@
 
 <!-- mobile drawer -->
 <div class="drawer" id="drawer" role="navigation" aria-label="Menu mobile">
+  <a href="#rappresentanze">Rappresentanze</a>
   <a href="#servizi">Settori</a>
   <a href="#chi-siamo">Chi Siamo</a>
-  <a href="#rappresentanze">Rappresentanze</a>
   <a href="#contatti">Contatti</a>
   <a href="#contatti" class="btn btn-primary">Contattaci</a>
 </div>
@@ -623,91 +651,6 @@
     <div class="hero__scroll-line"></div>
     <span>Scorri</span>
   </a>
-</section>
-
-<!-- ══ SETTORI ══ -->
-<section class="sec" id="servizi" aria-labelledby="svc-h">
-  <div class="wrap">
-    <p class="label r">I nostri settori</p>
-    <h2 class="h2 r d1" id="svc-h">Cinque ambiti,<br>un unico interlocutore</h2>
-    <p class="lead r d2">Consulenza qualificata e supporto commerciale per la distribuzione di soluzioni d'eccellenza nelle infrastrutture tecniche.</p>
-    <div class="svc-grid svc-grid--5">
-      <div class="svc-card svc-card--static r d1">
-        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2.7s6 6.3 6 10.8a6 6 0 01-12 0C6 9 12 2.7 12 2.7z"/></svg></div>
-        <h3 class="svc-title">Trattamento acque</h3>
-        <p class="svc-desc">Serbatoi per acqua potabile, piovana e depurazione; monitoraggio e strumentazione per acquedotti e impianti di trattamento.</p>
-      </div>
-      <div class="svc-card svc-card--static r d2">
-        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
-        <h3 class="svc-title">Antincendio</h3>
-        <p class="svc-desc">Serbatoi per riserve antincendio e servizi per lo smaltimento e la rigenerazione degli agenti estinguenti.</p>
-      </div>
-      <div class="svc-card svc-card--static r d3">
-        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></div>
-        <h3 class="svc-title">Energie rinnovabili</h3>
-        <p class="svc-desc">Solare termico, fotovoltaico, pompe di calore e caldaie a condensazione per l'efficienza energetica.</p>
-      </div>
-      <div class="svc-card svc-card--static r d1">
-        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
-        <h3 class="svc-title">Pompe</h3>
-        <p class="svc-desc">Elettropompe per uso domestico, acquedottistico, irrigazione e industria: sommerse, autoadescanti, centrifughe.</p>
-      </div>
-      <div class="svc-card svc-card--static r d2">
-        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 8h8a3 3 0 013 3v0a3 3 0 003 3h4M3 16h5"/></svg></div>
-        <h3 class="svc-title">Tubi e raccordi</h3>
-        <p class="svc-desc">Tubi in HDPE lisci, spiralati e corrugati, pozzetti e raccordi per acquedotti, fognature e cavidotti.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ ABOUT ══ -->
-<section class="sec sec--alt" id="chi-siamo" aria-labelledby="about-h">
-  <div class="wrap">
-    <div class="about-grid">
-      <!-- Visual -->
-      <div class="about-vis r">
-        <div class="about-box">
-          <div class="about-stats">
-            <div class="about-stat">
-              <div class="about-stat-n"><span class="cnt" data-t="40">40</span></div>
-              <div class="about-stat-l">Anni di esperienza nel settore</div>
-            </div>
-            <div class="about-stat">
-              <div class="about-stat-n"><span class="cnt" data-t="3">3</span></div>
-              <div class="about-stat-l">Generazioni di competenza</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Content -->
-      <div>
-        <p class="label r">Chi Siamo</p>
-        <h2 class="h2 r d1" id="about-h">Agenzia di rappresentanze<br>per le infrastrutture tecniche</h2>
-        <p class="lead r d2">Reacqua è un'agenzia di rappresentanze specializzata nel settore delle infrastrutture tecniche. Offriamo consulenza qualificata e supporto commerciale per la distribuzione di soluzioni d'eccellenza in cinque ambiti chiave, a fianco di produttori leader. Alle spalle, 40 anni di esperienza e 3 generazioni di competenza.</p>
-
-        <ul class="about-list r d3" aria-label="Punti di forza">
-          <li class="about-item">
-            <div class="about-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <p><strong>Consulenza qualificata</strong> e supporto commerciale per distributori, impiantisti, industria e municipalizzate</p>
-          </li>
-          <li class="about-item">
-            <div class="about-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <p><strong>Un unico interlocutore</strong> per trattamento acque, antincendio, energie rinnovabili, pompe e tubi</p>
-          </li>
-          <li class="about-item">
-            <div class="about-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <p><strong>Marchi leader</strong> italiani e internazionali, selezionati per affidabilità e qualità</p>
-          </li>
-        </ul>
-
-        <div style="margin-top:32px;" class="r d4">
-          <a href="#contatti" class="btn btn-primary">Parlaci del tuo progetto</a>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- ══ RAPPRESENTANZE ══ -->
@@ -869,8 +812,93 @@
   </div>
 </section>
 
+<!-- ══ SETTORI ══ -->
+<section class="sec sec--alt" id="servizi" aria-labelledby="svc-h">
+  <div class="wrap">
+    <p class="label r">I nostri settori</p>
+    <h2 class="h2 r d1" id="svc-h">Cinque ambiti,<br>un unico interlocutore</h2>
+    <p class="lead r d2">Consulenza qualificata e supporto commerciale per la distribuzione di soluzioni d'eccellenza nelle infrastrutture tecniche.</p>
+    <div class="svc-grid svc-grid--5">
+      <div class="svc-card svc-card--static r d1">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2.7s6 6.3 6 10.8a6 6 0 01-12 0C6 9 12 2.7 12 2.7z"/></svg></div>
+        <h3 class="svc-title">Trattamento acque</h3>
+        <p class="svc-desc">Serbatoi per acqua potabile, piovana e depurazione; monitoraggio e strumentazione per acquedotti e impianti di trattamento.</p>
+      </div>
+      <div class="svc-card svc-card--static r d2">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+        <h3 class="svc-title">Antincendio</h3>
+        <p class="svc-desc">Serbatoi per riserve antincendio e servizi per lo smaltimento e la rigenerazione degli agenti estinguenti.</p>
+      </div>
+      <div class="svc-card svc-card--static r d3">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></div>
+        <h3 class="svc-title">Energie rinnovabili</h3>
+        <p class="svc-desc">Solare termico, fotovoltaico, pompe di calore e caldaie a condensazione per l'efficienza energetica.</p>
+      </div>
+      <div class="svc-card svc-card--static r d1">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
+        <h3 class="svc-title">Pompe</h3>
+        <p class="svc-desc">Elettropompe per uso domestico, acquedottistico, irrigazione e industria: sommerse, autoadescanti, centrifughe.</p>
+      </div>
+      <div class="svc-card svc-card--static r d2">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 8h8a3 3 0 013 3v0a3 3 0 003 3h4M3 16h5"/></svg></div>
+        <h3 class="svc-title">Tubi e raccordi</h3>
+        <p class="svc-desc">Tubi in HDPE lisci, spiralati e corrugati, pozzetti e raccordi per acquedotti, fognature e cavidotti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section class="sec" id="chi-siamo" aria-labelledby="about-h">
+  <div class="wrap">
+    <div class="about-grid">
+      <!-- Visual -->
+      <div class="about-vis r">
+        <div class="about-box">
+          <div class="about-stats">
+            <div class="about-stat">
+              <div class="about-stat-n"><span class="cnt" data-t="40">40</span></div>
+              <div class="about-stat-l">Anni di esperienza nel settore</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-n"><span class="cnt" data-t="3">3</span></div>
+              <div class="about-stat-l">Generazioni di competenza</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div>
+        <p class="label r">Chi Siamo</p>
+        <h2 class="h2 r d1" id="about-h">Agenzia di rappresentanze<br>per le infrastrutture tecniche</h2>
+        <p class="lead r d2">Reacqua è un'agenzia di rappresentanze specializzata nel settore delle infrastrutture tecniche. Offriamo consulenza qualificata e supporto commerciale per la distribuzione di soluzioni d'eccellenza in cinque ambiti chiave, a fianco di produttori leader. Alle spalle, 40 anni di esperienza e 3 generazioni di competenza.</p>
+
+        <ul class="about-list r d3" aria-label="Punti di forza">
+          <li class="about-item">
+            <div class="about-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <p><strong>Consulenza qualificata</strong> e supporto commerciale per distributori, impiantisti, industria e municipalizzate</p>
+          </li>
+          <li class="about-item">
+            <div class="about-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <p><strong>Un unico interlocutore</strong> per trattamento acque, antincendio, energie rinnovabili, pompe e tubi</p>
+          </li>
+          <li class="about-item">
+            <div class="about-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <p><strong>Marchi leader</strong> italiani e internazionali, selezionati per affidabilità e qualità</p>
+          </li>
+        </ul>
+
+        <div style="margin-top:32px;" class="r d4">
+          <a href="#contatti" class="btn btn-primary">Parlaci del tuo progetto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ CONTACT ══ -->
-<section class="sec" id="contatti" aria-labelledby="contact-h">
+<section class="sec sec--alt" id="contatti" aria-labelledby="contact-h">
   <div class="wrap">
     <div class="contact-grid">
       <!-- Info -->
